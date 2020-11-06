@@ -1,0 +1,63 @@
+.container {
+  min-height: 100vh;
+  min-width: 100%;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f1216;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  width: 45em;
+  height: 45em;
+  margin: auto;
+}
+
+.orbit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  border: 1px solid ;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: transform .2s ease;
+}
+
+.orbit:hover {
+  transform: scale(1.05);
+}
+
+.planetContainer {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  /* animation: orbit 120s infinite linear; */
+  position: relative;
+}
+
+.planet {
+  position: absolute;
+  top: -25px;
+  right: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: skyblue;
+  border-radius: 50%;
+  animation: inherit;
+  animation-direction: reverse;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
