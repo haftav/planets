@@ -21,7 +21,6 @@ const Orbiter = ({size = '100%', bgColor = 'white', animationDuration = '100s'}:
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
             height="100%"
-            viewBox="-2 -2 100% 100%"
           >
             <circle
               cx="50%"
@@ -30,7 +29,7 @@ const Orbiter = ({size = '100%', bgColor = 'white', animationDuration = '100s'}:
               fill="transparent"
               stroke="#818181"
               strokeWidth="1"
-              stroke-dasharray="4"
+              strokeDasharray="3 2"
             />
           </svg>
         </div>
