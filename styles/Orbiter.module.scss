@@ -19,10 +19,12 @@
   height: 100%;
   border-radius: 50%;
   transition: transform .1s ease;
+  background-color: #0f1216;
 
   &:hover {
     transform: scale(1.02);
     cursor: pointer;
+    background-color: #171a1e;
   }
 }
 
@@ -40,10 +42,6 @@
 .svgWrapper svg {
   border-radius: 50%;
   overflow: hidden;
-
-  circle {
-    border: 1px solid pink;
-  }
 }
 
 .childrenContainer {
@@ -73,7 +71,7 @@
   right: 50%;
   width: 25px;
   height: 25px;
-  transform: translateX(50%) translateY(-50%);
+  transform: translateX(50%) translateY(-50%) rotate(360deg);
   border-radius: 50%;
   animation: rotatePlanet infinite linear;
   animation-duration: inherit;

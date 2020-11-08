@@ -1,0 +1,31 @@
+{
+  "planets": {
+    "mercury": {
+      "description": "Aute pariatur sunt exercitation deserunt consectetur id magna est pariatur quis nisi aliquip pariatur aliqua. Enim amet in incididunt proident. Exercitation incididunt sint in dolor dolore cupidatat officia labore pariatur incididunt exercitation voluptate non. Commodo et dolore commodo sunt eu consequat quis ut consequat sint excepteur velit qui excepteur."
+    },
+    "venus": {
+      "description": "Qui ut est deserunt Lorem veniam ex dolore est. Commodo et ex ullamco sint enim minim sunt in eiusmod. Incididunt sunt quis in in excepteur est veniam enim consectetur elit anim. Occaecat minim adipisicing in nostrud velit. Pariatur anim duis dolor quis laborum labore aliquip excepteur quis reprehenderit. Dolor nisi quis nulla ad dolore nisi non. Est enim id eu fugiat."
+    },
+    "earth": {
+      "description": "Consequat laboris deserunt sit cupidatat do eiusmod nisi. Voluptate amet eu voluptate voluptate irure laboris do reprehenderit id aliqua in exercitation. Nulla magna qui cupidatat ut duis. Qui laboris eiusmod ullamco adipisicing do aliqua sint reprehenderit sint. Do adipisicing irure pariatur elit. Ullamco adipisicing sint adipisicing dolor elit incididunt non."
+    },
+    "mars": {
+      "description": "Irure incididunt deserunt do Lorem elit magna magna pariatur deserunt eiusmod ex. Enim sint occaecat tempor non Lorem aliqua magna ipsum enim cupidatat. Do proident veniam irure cillum non Lorem amet nostrud ipsum nostrud."
+    },
+    "jupiter": {
+      "description": "Cillum enim magna tempor eu amet aliqua non non laboris duis veniam eu. Duis consequat incididunt non Lorem esse ipsum cillum elit occaecat enim reprehenderit. Nulla sint cillum labore amet consequat pariatur commodo."
+    },
+    "saturn": {
+      "description": "Non veniam laborum exercitation exercitation do eu aute proident non ad fugiat. Ea consequat sint duis ex tempor culpa irure in veniam laborum. Nostrud et mollit velit est qui laboris amet dolore cupidatat Lorem cillum. Pariatur labore adipisicing excepteur consequat dolor ex qui."
+    },
+    "uranus": {
+      "description": "Mollit cillum culpa ad ad tempor eiusmod quis culpa ut. Id aute Lorem elit ipsum ut. Irure Lorem Lorem sit nostrud. Pariatur eiusmod duis do voluptate. Laborum commodo nisi aliqua incididunt eu consequat ut Lorem incididunt consequat commodo. Anim et eiusmod eu culpa reprehenderit sint Lorem magna minim duis."
+    },
+    "neptune": {
+      "description": "Esse duis id nostrud eiusmod nostrud est labore et ex eu ut ad in. Sint fugiat ad est incididunt labore commodo culpa qui incididunt dolor adipisicing. Anim amet excepteur ea ea est aliqua Lorem cupidatat aliquip officia Lorem. Id sint eu est ut aliqua. Do aute irure irure veniam adipisicing dolore mollit nulla est exercitation velit. Veniam nulla nisi duis voluptate."
+    },
+    "pluto": {
+      "description": "Ad ad dolor in enim esse veniam culpa proident. Cupidatat deserunt do reprehenderit velit ea deserunt deserunt pariatur. Officia tempor reprehenderit consectetur est. Duis laborum cupidatat cillum dolor ea dolore. Dolore officia enim voluptate pariatur adipisicing ex occaecat ut deserunt velit id et."
+    }
+  }
+}
