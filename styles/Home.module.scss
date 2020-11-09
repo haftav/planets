@@ -1,5 +1,5 @@
 .container {
-  min-height: 150vh;
+  min-height: 65em;
   min-width: 100%;
   overflow: hidden;
   padding: 0 0.5rem;
@@ -47,7 +47,7 @@
 
 @media only screen and (min-width: 500px) {
   .container {
-    min-height: 140vh;
+    min-height: 60em;
   }
   .container h1 {
     width: auto;

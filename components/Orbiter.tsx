@@ -22,7 +22,7 @@ const Orbiter = ({
         height: size,
       }}
     >
-      <Link href={link}>
+      <Link href={link} scroll={false}>
         <a className={styles.innerWrapper}>
           <div className={styles.svgWrapper}>
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
