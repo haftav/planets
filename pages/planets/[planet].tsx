@@ -58,8 +58,17 @@ const Planet = () => {
               animate={{
                 opacity: imageLoaded ? 1 : 0,
                 scale: imageLoaded ? 1 : 0.8,
+                transition: {
+                  duration: .8,
+                }
               }}
-              transition={{type: 'tween', duration: 1.2}}
+              exit={{
+                scale: 0.8,
+                opacity: 0,
+                transition: {
+                  duration: 0.3,
+                },
+              }}
             >
               <Image
                 onLoad={handleImageLoad}
