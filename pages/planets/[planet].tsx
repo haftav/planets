@@ -39,12 +39,6 @@ const Planet = () => {
 
   const {description} = planetData;
 
-  let imageClass = styles.image;
-
-  if (imageLoaded) {
-    imageClass += ` ${styles.imageLoaded}`;
-  }
-
   return (
     <motion.div
       exit={{opacity: 0}}
@@ -57,15 +51,26 @@ const Planet = () => {
     >
       <Layout>
         <div className={styles.wrapper}>
-          <Image
-            onLoad={handleImageLoad}
-            src="/planet.png"
-            alt="Picture of the author"
-            width={200}
-            height={200}
-            quality="50%"
-            className={imageClass}
-          />
+          <div className={styles.flexRight}>
+            <motion.div
+              className={styles.imageWrapper}
+              initial={false}
+              animate={{
+                opacity: imageLoaded ? 1 : 0,
+                scale: imageLoaded ? 1 : 0.8,
+              }}
+              transition={{type: 'tween', duration: 1.2}}
+            >
+              <Image
+                onLoad={handleImageLoad}
+                src="/planet.png"
+                alt="Picture of the author"
+                width={300}
+                height={300}
+                quality="50%"
+              />
+            </motion.div>
+          </div>
           <h1>{planet.toUpperCase()}</h1>
           <p>{description}</p>
         </div>
