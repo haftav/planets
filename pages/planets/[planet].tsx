@@ -1,8 +1,6 @@
-import {useEffect, useRef, useState} from 'react';
-import {useRouter} from 'next/router';
-import Link from 'next/link';
+import {useState} from 'react';
 import Image from 'next/image';
-import {motion} from 'framer-motion';
+import {motion, AnimatePresence} from 'framer-motion';
 
 import Layout from 'components/Layout';
 import useData from 'hooks/useData';
@@ -41,6 +39,7 @@ const Planet = () => {
 
   return (
     <motion.div
+      key={`planet-wrapper-${planet}`}
       exit={{opacity: 0}}
       animate={{
         opacity: 1,
@@ -52,33 +51,39 @@ const Planet = () => {
       <Layout>
         <div className={styles.wrapper}>
           <div className={styles.flexRight}>
-            <motion.div
-              className={styles.imageWrapper}
-              initial={false}
-              animate={{
-                opacity: imageLoaded ? 1 : 0,
-                scale: imageLoaded ? 1 : 0.8,
-                transition: {
-                  duration: .8,
-                }
-              }}
-              exit={{
-                scale: 0.8,
-                opacity: 0,
-                transition: {
-                  duration: 0.3,
-                },
-              }}
-            >
-              <Image
-                onLoad={handleImageLoad}
-                src="/planet.png"
-                alt="Picture of the author"
-                width={300}
-                height={300}
-                quality="50%"
-              />
-            </motion.div>
+            <AnimatePresence>
+              <motion.div
+                key={`planet-${planet}`}
+                className={styles.imageWrapper}
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                }}
+                animate={{
+                  opacity: imageLoaded ? 1 : 0,
+                  scale: imageLoaded ? 1 : 0.8,
+                  transition: {
+                    duration: 0.8,
+                  },
+                }}
+                exit={{
+                  scale: 0.8,
+                  opacity: 0,
+                  transition: {
+                    duration: 0.3,
+                  },
+                }}
+              >
+                <Image
+                  onLoad={handleImageLoad}
+                  src="/planet.png"
+                  alt="Picture of the author"
+                  width={300}
+                  height={300}
+                  quality="50%"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
           <h1>{planet.toUpperCase()}</h1>
           <p>{description}</p>
