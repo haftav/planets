@@ -1,20 +1,24 @@
+import {GetServerSideProps} from 'next';
 import {useState} from 'react';
 import Image from 'next/image';
-import {motion, AnimatePresence} from 'framer-motion';
+import {motion} from 'framer-motion';
 
 import Layout from 'components/Layout';
 import useData from 'hooks/useData';
-import useRouteSafeQuery from 'hooks/useRouteSafeQuery';
 
 import styles from 'styles/Planet.module.scss';
 
-function isString(planet: string | string[]): planet is string {
+function isString(planet: string | string[] | undefined): planet is string {
   return typeof planet === 'string';
 }
 
-const Planet = () => {
+interface PlanetProps {
+  planet: string;
+}
+
+const Planet = ({planet}: PlanetProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const planet = useRouteSafeQuery('planet');
+
   const {planets} = useData();
 
   const handleImageLoad = () => {
@@ -22,11 +26,7 @@ const Planet = () => {
   };
 
   if (!planet) {
-    return null;
-  }
-
-  if (!isString(planet)) {
-    return null;
+    return <h1>Planet not found.</h1>;
   }
 
   const planetData = planets[planet];
@@ -39,51 +39,44 @@ const Planet = () => {
 
   return (
     <motion.div
-      key={`planet-wrapper-${planet}`}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
       exit={{opacity: 0}}
-      animate={{
-        opacity: 1,
-      }}
-      initial={{
-        opacity: 0,
-      }}
     >
       <Layout>
         <div className={styles.wrapper}>
           <div className={styles.flexRight}>
-            <AnimatePresence>
-              <motion.div
-                key={`planet-${planet}`}
-                className={styles.imageWrapper}
-                initial={{
-                  opacity: 0,
-                  scale: 0.8,
-                }}
-                animate={{
-                  opacity: imageLoaded ? 1 : 0,
-                  scale: imageLoaded ? 1 : 0.8,
-                  transition: {
-                    duration: 0.8,
-                  },
-                }}
-                exit={{
-                  scale: 0.8,
-                  opacity: 0,
-                  transition: {
-                    duration: 0.3,
-                  },
-                }}
-              >
-                <Image
-                  onLoad={handleImageLoad}
-                  src="/planet.png"
-                  alt="Picture of the author"
-                  width={300}
-                  height={300}
-                  quality="50%"
-                />
-              </motion.div>
-            </AnimatePresence>
+            <motion.div
+              key={`planet-${planet}`}
+              className={styles.imageWrapper}
+              initial={{
+                opacity: 0,
+                scale: 0.8,
+              }}
+              animate={{
+                opacity: imageLoaded ? 1 : 0,
+                scale: imageLoaded ? 1 : 0.8,
+                transition: {
+                  duration: 0.8,
+                },
+              }}
+              exit={{
+                scale: 0.8,
+                opacity: 0,
+                transition: {
+                  duration: 0.3,
+                },
+              }}
+            >
+              <Image
+                onLoad={handleImageLoad}
+                src="/planet.png"
+                alt="Picture of the author"
+                width={300}
+                height={300}
+                quality="50%"
+              />
+            </motion.div>
           </div>
           <h1>{planet.toUpperCase()}</h1>
           <p>{description}</p>
@@ -91,6 +84,15 @@ const Planet = () => {
       </Layout>
     </motion.div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const planet = isString(ctx.query.planet) ? ctx.query.planet : undefined;
+  return {
+    props: {
+      planet,
+    },
+  };
 };
 
 export default Planet;
