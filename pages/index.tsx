@@ -25,7 +25,6 @@ const Home = () => {
         <main>
           <h1>SOLAR SYSTEM</h1>
           <div className={styles.planets}>
-            <Orbiter animationDuration="90s" bgColor="tan" link="/planets/pluto" />
             <Orbiter
               size="90%"
               animationDuration="60s"

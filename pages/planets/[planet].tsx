@@ -49,10 +49,7 @@ const Planet = ({planet}: PlanetProps) => {
             <motion.div
               key={`planet-${planet}`}
               className={styles.imageWrapper}
-              initial={{
-                opacity: 0,
-                scale: 0.8,
-              }}
+              initial={false}
               animate={{
                 opacity: imageLoaded ? 1 : 0,
                 scale: imageLoaded ? 1 : 0.8,
@@ -70,8 +67,8 @@ const Planet = ({planet}: PlanetProps) => {
             >
               <Image
                 onLoad={handleImageLoad}
-                src="/planet.png"
-                alt="Picture of the author"
+                src={`/${planet}.png`}
+                alt={`Picture of ${planet}`}
                 width={300}
                 height={300}
                 quality="50%"
