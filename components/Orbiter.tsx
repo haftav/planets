@@ -1,5 +1,8 @@
+import {useContext} from 'react';
 import Link from 'next/link';
-import styles from 'styles/Orbiter.module.scss';
+
+import {StyleContext} from '../pages/_app';
+// import styles from 'styles/Orbiter.module.scss';
 
 interface OrbiterProps {
   size?: number | string;
@@ -14,6 +17,7 @@ const Orbiter = ({
   animationDuration = '100s',
   link,
 }: OrbiterProps) => {
+  const {orbiterStyles: styles} = useContext(StyleContext);
   return (
     <div
       className={styles.wrapper}

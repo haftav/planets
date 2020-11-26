@@ -1,20 +1,24 @@
+import {useContext} from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import {motion} from 'framer-motion';
 
 import Orbiter from 'components/Orbiter';
 import Sun from 'components/Sun';
+import {StyleContext} from './_app';
 
-import styles from 'styles/Home.module.scss';
-import {motion} from 'framer-motion';
-
-// keeping markup here in case I add back in later
-const ImageMarkup = (
-  <div className={styles.imageContainer}>
-    <Image className={styles.bgImage} layout="fill" src="/stars-1.jpg" />
-  </div>
-);
+// import styles from 'styles/Home.module.scss';
 
 const Home = () => {
+  const {homeStyles: styles} = useContext(StyleContext);
+
+  // keeping markup here in case I add back in later
+  const ImageMarkup = (
+    <div className={styles.imageContainer}>
+      <Image className={styles.bgImage} layout="fill" src="/stars-1.jpg" />
+    </div>
+  );
+
   return (
     <motion.div exit={{opacity: 0}} animate={{opacity: 1}} initial={{opacity: 0}}>
       <Head>
