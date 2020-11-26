@@ -1,5 +1,13 @@
-import styles from 'styles/Sun.module.scss';
+import {useContext} from 'react';
 
-const Sun = () => <div className={styles.sun}></div>;
+import {StyleContext} from '../pages/_app';
+// import styles from 'styles/Sun.module.scss';
+
+const Sun = () => {
+  const {sunStyles: styles} = useContext(StyleContext);
+  return (
+    <div className={styles.sun}></div>
+  )
+};
 
 export default Sun;

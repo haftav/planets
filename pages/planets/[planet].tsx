@@ -1,12 +1,13 @@
+import {useState, useContext} from 'react';
 import {GetServerSideProps} from 'next';
-import {useState} from 'react';
 import Image from 'next/image';
 import {motion} from 'framer-motion';
 
 import Layout from 'components/Layout';
 import useData from 'hooks/useData';
+import {StyleContext} from '../_app';
 
-import styles from 'styles/Planet.module.scss';
+// import styles from 'styles/Planet.module.scss';
 
 function isString(planet: string | string[] | undefined): planet is string {
   return typeof planet === 'string';
@@ -17,6 +18,8 @@ interface PlanetProps {
 }
 
 const Planet = ({planet}: PlanetProps) => {
+  const {planetStyles: styles} = useContext(StyleContext);
+
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const {planets} = useData();
@@ -49,10 +52,7 @@ const Planet = ({planet}: PlanetProps) => {
             <motion.div
               key={`planet-${planet}`}
               className={styles.imageWrapper}
-              initial={{
-                opacity: 0,
-                scale: 0.8,
-              }}
+              initial={false}
               animate={{
                 opacity: imageLoaded ? 1 : 0,
                 scale: imageLoaded ? 1 : 0.8,
@@ -70,8 +70,8 @@ const Planet = ({planet}: PlanetProps) => {
             >
               <Image
                 onLoad={handleImageLoad}
-                src="/planet.png"
-                alt="Picture of the author"
+                src={`/${planet}.png`}
+                alt={`Picture of ${planet}`}
                 width={300}
                 height={300}
                 quality="50%"
