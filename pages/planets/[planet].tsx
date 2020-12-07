@@ -1,10 +1,11 @@
 import {useState, useContext} from 'react';
-import {GetServerSideProps} from 'next';
+import {GetServerSideProps, GetStaticProps} from 'next';
 import Image from 'next/image';
 import {motion} from 'framer-motion';
 
 import Layout from 'components/Layout';
 import useData from 'hooks/useData';
+import planetData from '../../data.json';
 import {StyleContext} from '../_app';
 
 // import styles from 'styles/Planet.module.scss';
@@ -41,11 +42,7 @@ const Planet = ({planet}: PlanetProps) => {
   const {description} = planetData;
 
   return (
-    <motion.div
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
-    >
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <Layout>
         <div className={styles.wrapper}>
           <div className={styles.flexRight}>
@@ -86,8 +83,21 @@ const Planet = ({planet}: PlanetProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const planet = isString(ctx.query.planet) ? ctx.query.planet : undefined;
+export const getStaticPaths = async () => {
+  // Get the paths we want to pre-render based on planet data
+  const {planets} = planetData;
+
+  const paths = Object.keys(planets).map((key) => ({
+    params: {planet: key}
+  }))
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return {paths, fallback: false};
+};
+
+export const getStaticProps: GetStaticProps = async ({params = {}}) => {
+  const planet = isString(params.planet) ? params.planet : undefined;
   return {
     props: {
       planet,
