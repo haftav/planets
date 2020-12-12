@@ -9,6 +9,7 @@ interface OrbiterProps {
   bgColor?: string;
   animationDuration?: string;
   link: string;
+  position: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 }
 
 const Orbiter = ({
@@ -16,6 +17,7 @@ const Orbiter = ({
   bgColor = 'white',
   animationDuration = '100s',
   link,
+  position = 1,
 }: OrbiterProps) => {
   const {orbiterStyles: styles} = useContext(StyleContext);
   return (
@@ -42,7 +44,7 @@ const Orbiter = ({
             </svg>
           </div>
           <div
-            className={styles.orbitalBodyContainer}
+            className={`${styles.orbitalBodyContainer} orbitalNumber${position}`}
             style={{
               animationDuration,
             }}

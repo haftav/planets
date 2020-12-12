@@ -34,23 +34,56 @@ const Home = () => {
               animationDuration="60s"
               bgColor="mediumslateblue"
               link="/planets/neptune"
+              position={1}
             />
-            <Orbiter size="80%" animationDuration="43s" bgColor="skyblue" link="/planets/uranus" />
-            <Orbiter size="70%" animationDuration="80s" bgColor="magenta" link="/planets/saturn" />
-            <Orbiter size="60%" animationDuration="40s" bgColor="orange" link="/planets/jupiter" />
+            <Orbiter
+              size="80%"
+              animationDuration="43s"
+              bgColor="skyblue"
+              link="/planets/uranus"
+              position={2}
+            />
+            <Orbiter
+              size="70%"
+              animationDuration="80s"
+              bgColor="magenta"
+              link="/planets/saturn"
+              position={3}
+            />
+            <Orbiter
+              size="60%"
+              animationDuration="40s"
+              bgColor="orange"
+              link="/planets/jupiter"
+              position={4}
+            />
             <Orbiter
               size="50%"
               animationDuration="30s"
               bgColor="mediumpurple"
               link="/planets/mars"
+              position={5}
             />
-            <Orbiter size="40%" animationDuration="25s" bgColor="palegreen" link="/planets/earth" />
-            <Orbiter size="30%" animationDuration="35s" bgColor="peru" link="/planets/venus" />
+            <Orbiter
+              size="40%"
+              animationDuration="25s"
+              bgColor="palegreen"
+              link="/planets/earth"
+              position={6}
+            />
+            <Orbiter
+              size="30%"
+              animationDuration="35s"
+              bgColor="peru"
+              link="/planets/venus"
+              position={7}
+            />
             <Orbiter
               size="20%"
               animationDuration="15s"
               bgColor="lightcoral"
               link="/planets/mercury"
+              position={8}
             />
             <Sun />
           </div>
