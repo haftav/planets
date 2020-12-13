@@ -27,6 +27,7 @@ function MyApp({Component, pageProps, router}: AppProps) {
     planetStyles,
     sunStyles,
   };
+
   return (
     <StyleContext.Provider value={styles}>
       <AnimatePresence exitBeforeEnter>

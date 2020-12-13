@@ -49,7 +49,10 @@ const Planet = ({planet}: PlanetProps) => {
             <motion.div
               key={`planet-${planet}`}
               className={styles.imageWrapper}
-              initial={false}
+              initial={{
+                opacity: 0,
+                scale: 0.8,
+              }}
               animate={{
                 opacity: imageLoaded ? 1 : 0,
                 scale: imageLoaded ? 1 : 0.8,
