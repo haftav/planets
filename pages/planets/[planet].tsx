@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react';
+import {useState, useContext, useEffect, useRef} from 'react';
 import {GetServerSideProps, GetStaticProps} from 'next';
 import Image from 'next/image';
 import {motion} from 'framer-motion';
@@ -19,6 +19,9 @@ interface PlanetProps {
 }
 
 const Planet = ({planet}: PlanetProps) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   const {planetStyles: styles} = useContext(StyleContext);
 
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -91,8 +94,8 @@ export const getStaticPaths = async () => {
   const {planets} = planetData;
 
   const paths = Object.keys(planets).map((key) => ({
-    params: {planet: key}
-  }))
+    params: {planet: key},
+  }));
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
